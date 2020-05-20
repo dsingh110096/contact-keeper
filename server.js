@@ -6,6 +6,9 @@ const app = express();
 //Connect Database
 connectDB();
 
+//Init Middleware(To use req.body in different routes we need this middleware to use !! important)
+app.use(express.json({ extended: false }));
+
 app.get('/', (req, res) => res.json({ msg: 'Welcome to ContactKeeper API..' }));
 
 //DEFINE ROUTES
