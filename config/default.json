@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://dsingh110096:Ilove1993@ss@contactkeeper-q8qxw.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://dsingh110096:Ilove1993@ss@contactkeeper-q8qxw.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "e35ab6c626dde445222c177a8169a0892286cb0835ecfc2b8ee2dec7c30308ab5476ef196b0a747ce44f5ba168df7dc8f882259b3b8736caf0fb32893b71da57"
 }
