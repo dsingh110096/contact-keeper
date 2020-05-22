@@ -4,6 +4,7 @@ import ContactContext from '../../context/contact/contactContext';
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
   const { addContact, updateContact, current, clearCurrent } = contactContext;
+
   //useEffect works as component did mount
   useEffect(() => {
     if (current !== null) {
@@ -30,21 +31,19 @@ const ContactForm = () => {
   const onChange = (e) => setContact({ ...contact, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
-    e.preventDefault();
     if (current === null) {
       addContact(contact);
+      setContact({ name: '', email: '', phone: '', type: 'personal' });
     } else {
       updateContact(contact);
     }
-    clearAll();
-  };
-
-  const clearAll = () => {
     clearCurrent();
+
+    e.preventDefault();
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} autoComplete='off'>
       <h2 className='text-primary'>{current ? 'Edit Contact' : 'Add Contact'}</h2>
       <input type='text' placeholder='Name' value={name} name='name' onChange={onChange} />
       <input type='email' placeholder='Email' value={email} name='email' onChange={onChange} />
@@ -75,7 +74,12 @@ const ContactForm = () => {
       </div>
       {current && (
         <div>
-          <button className='btn btn-light btn-block' onClick={clearAll}>
+          <button
+            className='btn btn-light btn-block'
+            onClick={() => {
+              clearCurrent();
+            }}
+          >
             Clear
           </button>
         </div>
