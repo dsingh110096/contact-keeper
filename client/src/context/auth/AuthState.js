@@ -8,7 +8,7 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
-  LOGIN_SUCCESSS,
+  LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
@@ -71,9 +71,29 @@ const AuthState = (props) => {
     }
   };
   //Login User
-  const login = () => {};
+  const login = async (formdata) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const res = await axios.post('/api/auth', formdata, config);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+        //that is token here after register
+      });
+      loadUser();
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data.msg,
+      });
+    }
+  };
   //Logout
-  const logout = () => {};
+  const logout = () => dispatch({ type: LOGOUT });
   //Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
