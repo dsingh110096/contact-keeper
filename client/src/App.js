@@ -13,6 +13,7 @@ import Alerts from './components/layout/Alerts';
 import setAuthToken from './utils/setAuthToken';
 import './App.css';
 import PrivateRoute from './components/routing/PrivateRoute';
+import NotFound from './components/pages/NotFound';
 
 //accessing token header globally from utils folder
 if (localStorage.token) {
@@ -34,6 +35,7 @@ const App = () => {
                   <Route exact path='/about' component={About} />
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
+                  <Route component={NotFound} />
                 </Switch>
               </div>
             </Fragment>
