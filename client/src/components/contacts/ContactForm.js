@@ -1,9 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
+  const alertContext = useContext(AlertContext);
   const { addContact, updateContact, current, clearCurrent } = contactContext;
+  const { setAlert } = alertContext;
 
   //useEffect works as component did mount
   useEffect(() => {
@@ -31,6 +34,9 @@ const ContactForm = () => {
   const onChange = (e) => setContact({ ...contact, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
+    if (name === '' || email === '' || phone === '') {
+      setAlert('Please fill all fields', 'success');
+    }
     if (current === null) {
       addContact(contact);
       setContact({ name: '', email: '', phone: '', type: 'personal' });

@@ -15,7 +15,7 @@ const Login = (props) => {
       props.history.push('/');
     }
     if (error === 'Invalid Credentials') {
-      setAlert(error, 'danger');
+      setAlert(error, 'success');
       clearErrors();
     }
     //eslint-disable-next-line
@@ -31,7 +31,7 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     if (email === '' || password === '') {
-      setAlert('Please fill in all fields', 'danger');
+      setAlert('Please fill in all fields', 'success');
     } else {
       login({ email, password });
     }
