@@ -5,8 +5,8 @@ const About = () => {
     <div>
       <h1>About This App</h1>
       <h4 className='mb-1'>
-        This is a Fullstack Web App based on reactjs,nodejs,express,context.api etc. for keeping
-        contacts
+        This is a Fullstack Web App based on react,react
+        router,react-router-dom,nodejs,express,context.api etc. for keeping contacts
       </h4>
       <p>
         Bacically this app keeps tracks of contacts of users, they can create contacts, can
