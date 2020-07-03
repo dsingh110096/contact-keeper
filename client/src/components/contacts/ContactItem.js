@@ -34,7 +34,15 @@ const ContactItem = ({ contact }) => {
         )}
       </ul>
       <p>
-        <Link to='#!' className='btn btn-dark btn-sm' onClick={() => setCurrent(contact)}>
+        <Link
+          to='#!'
+          className='btn btn-dark btn-sm'
+          onClick={() => {
+            setCurrent(contact);
+            const navTop = document.querySelector('#nav-top');
+            navTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        >
           Edit
         </Link>
         <Link

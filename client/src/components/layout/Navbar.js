@@ -38,7 +38,7 @@ const Navbar = ({ title, icon }) => {
     </Fragment>
   );
   return (
-    <div className='navbar bg-primary'>
+    <div className='navbar bg-primary' id='nav-top'>
       <h1>
         <i className={icon} /> {title}
       </h1>
