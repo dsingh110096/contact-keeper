@@ -39,11 +39,9 @@ const ContactForm = () => {
     }
     if (current === null) {
       addContact(contact);
-      setAlert('Contact Added Successfully!', 'success');
       setContact({ name: '', email: '', phone: '', type: 'personal' });
     } else {
       updateContact(contact);
-      setAlert('Contact Updated Successfully!', 'success');
     }
     clearCurrent();
 
